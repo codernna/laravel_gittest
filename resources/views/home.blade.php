@@ -16,6 +16,15 @@
 
         		<div class="container">
 					<h2>Home Page &raquo;</h2>
+
+					@if(session("message"))
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+  						{{session("message")}}
+ 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    					<span aria-hidden="true">&times;</span>
+  					</button>
+					</div>
+					@endif
 				
 						<a href="/receipe/create"><button class="btn btn-success">+ NewReceipe</button></a>
 						<br><br>

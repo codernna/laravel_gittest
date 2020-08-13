@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Receipe;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +47,11 @@ use Illuminate\Support\Facades\Route;
 // 	]);
 // });
 // 
+
+
+Route::get('/', function() {
+	dd(app('test'));
+});
 Route::resource('receipe','ReceipeController');
 Route::get('home', 'HomeController@index');
 // Route::get('receipe','ReceipeController@index');
