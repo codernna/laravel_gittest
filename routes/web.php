@@ -49,11 +49,13 @@ use App\Receipe;
 // 
 
 
-Route::get('/', function() {
-	dd(app('test'));
-});
+// Route::get('/', function() {
+// 	dd(app('test'));
+// });
 Route::resource('receipe','ReceipeController');
 Route::get('home', 'HomeController@index');
+Route::get('/', 'PublicController@index');
+Route::get('/detail/{id}', 'PublicController@show');
 // Route::get('receipe','ReceipeController@index');
 // Route::get('receipe/create','ReceipeController@createReceipeForm');
 // Route::get('receipe/{id}', 'ReceipeController@show');
