@@ -53,7 +53,9 @@ use App\Receipe;
 // 	dd(app('test'));
 // });
 Route::resource('receipe','ReceipeController');
+Route::resource('category','CategoryController');
 Route::get('home', 'HomeController@index');
+//public Route
 Route::get('/', 'PublicController@index');
 Route::get('/detail/{id}', 'PublicController@show');
 // Route::get('receipe','ReceipeController@index');
