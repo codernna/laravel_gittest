@@ -15,7 +15,7 @@
             </ul>
         </div>
     @endif
-    <form action="\receipe\{{$receipe->id}}" method="post">
+    <form action="\receipe\{{$receipe->id}}" method="post" enctype="multipart/form-data">
         @csrf
         @method("PATCH")
         <div class="form-group">
@@ -38,6 +38,12 @@
               }
             @endforeach
           </select>
+        </div>
+
+        <div class="form-group">
+          <label>ReceipeImage</label>
+          <input type="file" name="rimage"><br><br>
+           <img src="{{'/images/'.$receipe->image}}" width="100" height="100"></li>
         </div>
 
         <button type="submit" class="btn btn-primary">Update Receipe</button>

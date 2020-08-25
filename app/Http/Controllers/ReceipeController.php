@@ -61,10 +61,20 @@ class ReceipeController extends Controller
         'name' => 'required',
         'ingredients' => 'required',
         'category' => 'required',
+        'rimage' => 'required|image',
         ]);
 
-       $receipe= Receipe::create($validatedData + ['author_id' => auth()->id()]);
+        //image upload
+        $imageName =time().".".request()->rimage->getClientOriginalExtension();
+        // dd($imageName);
+        
+        request()->rimage->move(public_path('images'), $imageName);
+       
+
+        $receipe= Receipe::create($validatedData + ['author_id' => auth()->id(), 'image'=>$imageName]);
+
        // event(new ReceipeCreatedEvent($receipe));
+
         return redirect('receipe');
 
     }
@@ -111,6 +121,7 @@ class ReceipeController extends Controller
         'name' => 'required',
         'ingredients' => 'required',
         'category' => 'required',
+        'rimage' => 'image',        
         ]);
 
         // $receipe = Receipe::find($receipe->id);
@@ -120,7 +131,12 @@ class ReceipeController extends Controller
         // $receipe->category = request()->category;
 
         // $receipe->save();
-        $receipe->update($validatedData);
+        
+        $imageName =time().".".request()->rimage->getClientOriginalExtension();
+        request()->rimage->move(public_path('images'), $imageName);
+    
+       
+        $receipe->update($validatedData + ['image' => empty($imageName)? null : $imageName]);
         return redirect('receipe')->with("message", "Receipe is successfully updated!");
     }
 

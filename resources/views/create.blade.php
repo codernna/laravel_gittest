@@ -15,7 +15,7 @@
             </ul>
         </div>
     @endif
-    <form action="\receipe" method="post">
+    <form action="\receipe" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="name">Receipe Name</label>
@@ -39,6 +39,12 @@
             <option value="{{$value->id}}">{{$value->name}}</option>
             @endforeach
           </select>
+        </div>
+
+        <div class="form-group">
+          <label>Receipe Image</label>
+         <input type="file" name="rimage">
+
         </div>
 
         <button type="submit" class="btn btn-primary">Add New Receipe</button>

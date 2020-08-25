@@ -20,6 +20,9 @@
            
             <div class="card-body">
               <h3>{{$receipe->name}}</h3>
+               @if($receipe->image)
+              <img src="{{'/images/'. $receipe->image}}" width="300" height="200" alt="image">
+              @endif
               <p class="card-text">{{$receipe->ingredients}}</p>
               <span>{{$receipe->categories->name}}</span>
                <div class="d-flex justify-content-between align-items-center">

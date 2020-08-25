@@ -6,6 +6,9 @@
 	 	<h2>{{$receipe->name}} Page</h2>
 		 <li>Ingredients- {{$receipe->ingredients}}</li>
 		 <li>Category- {{$receipe->categories->name}}</li> <!-- categories function cll p name htoke pay -->
+		 <li>
+		  <img src="{{'/images/'.$receipe->image}}" alt="image"></li>
+		 <br>
 	 
 			 <a href="/receipe/{{$receipe->id}}/edit"><button type="submit" class="btn btn-success">Edit</button></a>
 			 <br><br>

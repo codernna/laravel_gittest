@@ -13,7 +13,7 @@ class Receipe extends Model
 {
     protected $table = 'receipes';
      protected $fillable = [
-        'name', 'ingredients', 'category', 'author_id'
+        'name', 'ingredients', 'category', 'author_id', 'image'
     ];
 
     // protected $guarded = [];
