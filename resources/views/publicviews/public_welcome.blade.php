@@ -1,12 +1,13 @@
 @extends('layout')
 
 @section('content')
+
+
     
 <main role="main">
-
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>Receipe Blog</h1>
+      <h1>Choice Your Receipe</h1>
       <p class="lead text-muted">Read Our interesting receipe articles and enjoy yourself.</p>
     </div>
   </section>

@@ -124,19 +124,28 @@ class ReceipeController extends Controller
         'rimage' => 'image',        
         ]);
 
-        // $receipe = Receipe::find($receipe->id);
+       // $receipe = Receipe::find($receipe->id);
 
         // $receipe->name = request()->name;
         // $receipe->ingredients = request()->ingredients;
         // $receipe->category = request()->category;
 
         // $receipe->save();
-        
+        if(request()->rimage){
         $imageName =time().".".request()->rimage->getClientOriginalExtension();
         request()->rimage->move(public_path('images'), $imageName);
-    
+        }
+          
+
+
+        if(!empty($imageName)){
+        $receipe->update($validatedData + ['image'=>$imageName]);
+        }else {
+            $receipe->update($validatedData);
+        }
+
        
-        $receipe->update($validatedData + ['image' => empty($imageName)? null : $imageName]);
+
         return redirect('receipe')->with("message", "Receipe is successfully updated!");
     }
 

@@ -25,6 +25,8 @@
               @endif
               <p class="card-text">{{$receipe->ingredients}}</p>
               <span>{{$receipe->categories->name}}</span>
+              <!-- {{ $receipe->created_at->diffForHumans() }} -->
+              {{ date('d/m/y',strtotime($receipe->created_at))}}
                <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                  <a href="/"><button type="button" class="btn btn-sm btn-outline-secondary">Back</button>
