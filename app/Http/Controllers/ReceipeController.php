@@ -11,6 +11,7 @@ use App\Category;
 use App\Receipe;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReceipeStoredRequest;
 
 class ReceipeController extends Controller
 {
@@ -54,15 +55,16 @@ class ReceipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReceipeStoredRequest $request)
     {
         // dd(request()->all());
-        $validatedData = request()->validate([
-        'name' => 'required',
-        'ingredients' => 'required',
-        'category' => 'required',
-        'rimage' => 'required|image',
-        ]);
+        $validatedData = $request->validate();
+        // $validatedData = request()->validate([
+        // 'name' => 'required',
+        // 'ingredients' => 'required',
+        // 'category' => 'required',
+        // 'rimage' => 'required|image',
+        // ]);
 
         //image upload
         $imageName =time().".".request()->rimage->getClientOriginalExtension();
